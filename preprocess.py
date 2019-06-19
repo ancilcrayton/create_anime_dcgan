@@ -4,7 +4,7 @@ import animeface
 from PIL import Image
 total_num_faces = 0
 for index, filename in
-enumerate(glob.glob('/path/to/directory/containing/images/*.*')):
+enumerate(glob.glob('gallery-dl/danbooru/face/*.*')):
     # Open image and detect faces
     try:
         im = Image.open(filename)
