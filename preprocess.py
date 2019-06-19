@@ -32,8 +32,8 @@ enumerate(glob.glob('gallery-dl/danbooru/face/*.*')):
     # cropped_image.show()
     
     # Save it in the output directory
-    cropped_image.save("/path/to/directory/to/store/cropped/images/filename.png
-            "))
+    cropped_image.save("/gallery-dl/danbooru/face/cropped/{}
+            ".format(filename))
     print("Cropped image saved successfully")
     total_num_faces += 1
     print("Number of faces detected till now:{}".format(total_num_faces))
