@@ -3,6 +3,10 @@ import os
 import animeface
 from PIL import Image
 
+# Create a data/ directory if it does not exist
+if os.path.isdir("data/")==False:
+    os.system('mkdir data/')
+    
 total_num_faces = 0
 
 for index, filename in enumerate(glob.glob('gallery-dl/danbooru/face/*.*')):
@@ -35,7 +39,7 @@ for index, filename in enumerate(glob.glob('gallery-dl/danbooru/face/*.*')):
     # cropped_image.show()
     
     # Save it in the output directory
-    cropped_image.save("{}".format(str(filename)))
+    cropped_image.save("data/face_{}.jpg".format(str(index)))
     print("Image cropped and saved successfully!")
     total_num_faces += 1
     print("Number of faces detected till now:{}".format(total_num_faces))
