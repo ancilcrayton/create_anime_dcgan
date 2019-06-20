@@ -1,5 +1,4 @@
 import keras.backend as K
-import tensorflow as tf
 from keras import Sequential, Input, Model
 from keras.layers import Conv2D
 from keras.layers import Dense
