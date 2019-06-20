@@ -7,8 +7,10 @@ from PIL import Image
 if os.path.isdir("data/")==False:
     os.system('mkdir data/')
     
+# Track the total number of images with faces
 total_num_faces = 0
 
+# Loop over image files scraped using gallery-dl
 for index, filename in enumerate(glob.glob('gallery-dl/danbooru/face/*.*')):
     # Open image and detect faces
     try:
