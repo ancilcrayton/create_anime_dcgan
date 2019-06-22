@@ -3,7 +3,7 @@ import numpy as np
 import time
 from keras.optimizers import Adam, SGD
 from keras.callbacks import TensorBoard
-from utils import normalize, save_rgb_image
+from utils import normalize, save_rgb_img
 
 # Create function that trains model and execute upon running script
 def train():
