@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
+plt.switch_backend('agg')
 
 def denormalize(img):
     img = (img + 1) * 127.5
