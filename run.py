@@ -6,10 +6,10 @@ from models import build_discriminator, build_generator, build_adversarial_model
 from keras.optimizers import Adam, SGD
 from keras.callbacks import TensorBoard
 from scipy.misc import imread
-from utils import normalize, save_rgb_img
+from utils import normalize, save_rgb_img, write_log
 
 # Create path to save sampled images from generator
-if os.path.isdir('/results/img/') == False:
+if os.path.isdir('results/img/') == False:
     os.system('mkdir results/img/')
 
 # Create function that trains model and execute upon running script
