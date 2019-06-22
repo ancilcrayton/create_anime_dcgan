@@ -12,7 +12,7 @@ def train():
     # Set main parameters
     start_time = time.time()
     dataset_dir = "data/*.*"
-    batch_size = 32
+    batch_size = 64
     z_shape = 100
     epochs = 1000
     dis_learning_rate = 0.005
