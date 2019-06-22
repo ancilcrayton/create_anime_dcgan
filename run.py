@@ -1,3 +1,4 @@
+import os
 import glob
 import numpy as np
 import time
@@ -6,6 +7,10 @@ from keras.optimizers import Adam, SGD
 from keras.callbacks import TensorBoard
 from scipy.misc import imread
 from utils import normalize, save_rgb_img
+
+# Create path to save sampled images from generator
+if os.path.isdir('/results/img/') == False:
+    os.system('mkdir results/img/')
 
 # Create function that trains model and execute upon running script
 def train():
