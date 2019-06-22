@@ -24,8 +24,8 @@ $ python run.py
 We record the results for the model every 100 epochs, retrieving images sampled from the generator.
 
 After 0 epochs:
-![](results/img/gen_0)
+![](results/img/gen_0.png)
 
 After 100 epochs:
-![](results/img/gen_100)
+![](results/img/gen_100.png)
  
