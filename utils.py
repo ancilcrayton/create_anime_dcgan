@@ -25,8 +25,7 @@ def save_rgb_img(img, path):
     """
     Save a rgb image
     """
-    fig = plt.figure()
-    ax = fig.add_subplot(1, 1, 1)
+    fig, ax = plt.subplots(1,1)
     ax.imshow(img)
     ax.axis("off")
     ax.set_title("RGB Image")
