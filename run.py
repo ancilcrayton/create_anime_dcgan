@@ -1,4 +1,5 @@
 import keras
+from keras import backend as K
 import tensorflow as tf
 import os
 import glob
@@ -10,6 +11,7 @@ from keras.optimizers import Adam, SGD
 from keras.callbacks import TensorBoard
 from scipy.misc import imread
 from utils import normalize, denormalize, save_rgb_img, write_log
+K.tensorflow_backend._get_available_gpus()
 
 # Create path to save sampled images from generator
 if os.path.isdir('results/img/') == False:
@@ -17,7 +19,7 @@ if os.path.isdir('results/img/') == False:
 
 # Check number of cores and use for training
 num_cores = multiprocessing.cpu_count()
-config = tf.ConfigProto(device_count={'CPU':num_cores})
+config = tf.ConfigProto(device_count={'GPU':1, 'CPU':num_cores})
 sess = tf.Session(config=config)
 keras.backend.set_session(sess)
 print('Number of cores available: {}'.format(num_cores))
