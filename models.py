@@ -52,19 +52,23 @@ def build_discriminator():
                padding='same',
                input_shape=(64, 64, 3))
     )
+    dis_model.add(BatchNormalization())
     dis_model.add(LeakyReLU(alpha=0.2))
     dis_model.add(MaxPooling2D(pool_size=(2, 2)))
 
     dis_model.add(Conv2D(256, (3, 3)))
+    dis_model.add(BatchNormalization())
     dis_model.add(LeakyReLU(alpha=0.2))
     dis_model.add(MaxPooling2D(pool_size=(2, 2)))
 
     dis_model.add(Conv2D(512, (3, 3)))
+    dis_model.add(BatchNormalization())
     dis_model.add(LeakyReLU(alpha=0.2))
     dis_model.add(MaxPooling2D(pool_size=(2, 2)))
 
     dis_model.add(Flatten())
     dis_model.add(Dense(1024))
+    dis_model.add(BatchNormalization())
     dis_model.add(LeakyReLU(alpha=0.2))
 
     dis_model.add(Dense(1))
