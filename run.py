@@ -1,7 +1,10 @@
+import keras
+import tensorflow as tf
 import os
 import glob
 import numpy as np
 import time
+import multiprocessing
 from models import build_discriminator, build_generator, build_adversarial_model
 from keras.optimizers import Adam, SGD
 from keras.callbacks import TensorBoard
@@ -11,6 +14,13 @@ from utils import normalize, denormalize, save_rgb_img, write_log
 # Create path to save sampled images from generator
 if os.path.isdir('results/img/') == False:
     os.system('mkdir results/img/')
+
+# Check number of cores and use for training
+num_cores = multiprocessing.cpu_count()
+config = tf.ConfigProto(device_count={'CPU':num_cores})
+sess = tf.Session(config=config)
+keras.backend.set_session(sess)
+print('Number of cores available: {}'.format(num_cores))
 
 # Create function that trains model and execute upon running script
 def train():
