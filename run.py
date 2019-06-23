@@ -6,7 +6,7 @@ from models import build_discriminator, build_generator, build_adversarial_model
 from keras.optimizers import Adam, SGD
 from keras.callbacks import TensorBoard
 from scipy.misc import imread
-from utils import normalize, save_rgb_img, write_log
+from utils import normalize, denormalize, save_rgb_img, write_log
 
 # Create path to save sampled images from generator
 if os.path.isdir('results/img/') == False:
@@ -17,7 +17,7 @@ def train():
     # Set main parameters
     start_time = time.time()
     dataset_dir = "data/*.*"
-    batch_size = 64
+    batch_size = 128
     z_shape = 100
     epochs = 1000
     dis_learning_rate = 0.005
@@ -118,7 +118,7 @@ def train():
             gen_images1 = gen_model.predict_on_batch(z_noise)
 
             for img in gen_images1[:2]:
-                save_rgb_img(img, "results/img/gen_{}.png".format(epoch))
+                save_rgb_img(denormalize(img), "results/img/gen_{}.png".format(epoch))
 
         print("Epoch:{}, dis_loss:{}".format(epoch, np.mean(dis_losses)))
         print("Epoch:{}, gen_loss: {}".format(epoch, np.mean(gen_losses)))
