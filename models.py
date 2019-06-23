@@ -19,6 +19,7 @@ def build_generator():
     gen_model = Sequential()
 
     gen_model.add(Dense(input_dim=100, output_dim=2048))
+    gen_model.add(BatchNormalization())
     gen_model.add(ReLU())
 
     gen_model.add(Dense(256 * 8 * 8))
@@ -28,11 +29,13 @@ def build_generator():
     gen_model.add(UpSampling2D(size=(2, 2)))
 
     gen_model.add(Conv2D(128, (5, 5), padding='same'))
+    gen_model.add(BatchNormalization())
     gen_model.add(ReLU())
 
     gen_model.add(UpSampling2D(size=(2, 2)))
 
     gen_model.add(Conv2D(64, (5, 5), padding='same'))
+    gen_model.add(BatchNormalization())
     gen_model.add(ReLU())
 
     gen_model.add(UpSampling2D(size=(2, 2)))
