@@ -27,9 +27,11 @@ def train():
     dis_nesterov = True
     gen_nesterov = True
     
-    # Use stochastic gradient descent (can change to Adam later)
-    dis_optimizer = SGD(lr=dis_learning_rate, momentum=dis_momentum, nesterov=dis_nesterov)
-    gen_optimizer = SGD(lr=gen_learning_rate, momentum=gen_momentum, nesterov=gen_nesterov)
+    # Define optimizers (can change to Adam later)
+    #dis_optimizer = SGD(lr=dis_learning_rate, momentum=dis_momentum, nesterov=dis_nesterov)
+    #gen_optimizer = SGD(lr=gen_learning_rate, momentum=gen_momentum, nesterov=gen_nesterov)
+    dis_optimizer = Adam(lr=1e-3, decay=1e-5)
+    gen_optimizer = Adam(lr=1e-4, decay=1e-5)
 
     # Load images
     all_images = []
@@ -85,7 +87,7 @@ def train():
             image_batch = X[index * batch_size:(index + 1) * batch_size]
 
             y_real = np.ones((batch_size, )) * 0.9
-            y_fake = np.zeros((batch_size, )) * 0.1
+            y_fake = np.zeros((batch_size, )) + 0.1 # not multiplication
 
             dis_loss_real = dis_model.train_on_batch(image_batch, y_real)
             dis_loss_fake = dis_model.train_on_batch(generated_images, y_fake)
