@@ -30,8 +30,8 @@ def train():
     # Define optimizers (can change to Adam later)
     #dis_optimizer = SGD(lr=dis_learning_rate, momentum=dis_momentum, nesterov=dis_nesterov)
     #gen_optimizer = SGD(lr=gen_learning_rate, momentum=gen_momentum, nesterov=gen_nesterov)
-    dis_optimizer = Adam(lr=1e-3, decay=1e-5)
-    gen_optimizer = Adam(lr=1e-4, decay=1e-5)
+    dis_optimizer = Adam()
+    gen_optimizer = Adam()
 
     # Load images
     all_images = []
