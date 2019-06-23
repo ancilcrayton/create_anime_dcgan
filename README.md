@@ -31,3 +31,5 @@ After 10 epochs:
 
 ![](results/img/gen_10.png)
 
+After 20 epochs:
+![](results/img/gen_20.png)
