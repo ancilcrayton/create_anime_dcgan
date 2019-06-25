@@ -32,4 +32,5 @@ After 1000 epochs:
 ![](results/img/gen_1000.png)
 
 After 3000 epochs:
+
 ![](results/img/gen_3000.png)
