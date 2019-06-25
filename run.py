@@ -1,5 +1,4 @@
 import keras
-from keras import backend as K
 import tensorflow as tf
 import os
 import glob
@@ -11,7 +10,6 @@ from keras.optimizers import Adam, SGD
 from keras.callbacks import TensorBoard
 from scipy.misc import imread
 from utils import normalize, denormalize, save_rgb_img, write_log
-K.tensorflow_backend._get_available_gpus()
 
 # Create path to save sampled images from generator
 if os.path.isdir('results/img/') == False:
@@ -31,7 +29,7 @@ def train():
     dataset_dir = "data/*.*"
     batch_size = 128
     z_shape = 100
-    epochs = 1000
+    epochs = 10000
     dis_learning_rate = 0.005
     gen_learning_rate = 0.005
     dis_momentum = 0.5
@@ -125,7 +123,7 @@ def train():
         Sample some images and save them
         """
 	# Sample images every one hundred epochs
-        if epoch % 10 == 0:
+        if epoch % 100 == 0:
             z_noise = np.random.normal(0, 1, size=(batch_size, z_shape))
             gen_images1 = gen_model.predict_on_batch(z_noise)
 
