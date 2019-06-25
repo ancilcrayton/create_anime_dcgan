@@ -1,7 +1,7 @@
 # Creating Anime Characters using a DCGAN
 
 ## Purpose
-This project is an implementation of a Deep Convloutional Generative Adversarial Network, which is a an extension of the Generative Adversarial Network to allow for convolutional layers in both the generator and discriminator networks. I apply this to generate anime character faces such as those from the danbooru gallery.
+This project is an implementation of a Deep Convolutional Generative Adversarial Network, which is a an extension of the Generative Adversarial Network to allow for convolutional layers in both the generator and discriminator networks. I apply this to generate anime character faces such as those from the danbooru gallery.
 
 ## Usage
 

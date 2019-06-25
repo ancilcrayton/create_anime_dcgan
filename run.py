@@ -29,7 +29,7 @@ def train():
     dataset_dir = "data/*.*"
     batch_size = 128
     z_shape = 100
-    epochs = 10000
+    epochs = 5000
     dis_learning_rate = 0.005
     gen_learning_rate = 0.005
     dis_momentum = 0.5
