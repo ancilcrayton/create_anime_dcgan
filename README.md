@@ -21,7 +21,7 @@ $ python run.py
 ```
 
 ## Results
-We record the results for the model every 100 epochs, retrieving images sampled from the generator.
+We record the results for the model every 1000 epochs, retrieving images sampled from the generator.
 
 After 0 epochs:
 
