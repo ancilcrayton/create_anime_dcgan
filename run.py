@@ -99,11 +99,11 @@ def train():
             # Label switching every three epochs
             if epoch % 3 == 0:
                 # Use label smoothing to avoid discriminator approaching zero loss quickly
-                y_fake = np.random.uniform(low=0.9, high=1.0, size=(batch_size, ))
-                y_real = np.random.uniform(low=0, high=0.1, size=(batch_size, ))
+                y_fake = np.random.uniform(low=0.7, high=1.2, size=(batch_size, ))
+                y_real = np.random.uniform(low=0, high=0.3, size=(batch_size, ))
             else:
-                y_real = np.random.uniform(low=0.9, high=1.0, size=(batch_size, ))
-                y_fake = np.random.uniform(low=0, high=0.1, size=(batch_size, ))
+                y_real = np.random.uniform(low=0.7, high=1.2, size=(batch_size, ))
+                y_fake = np.random.uniform(low=0, high=0.3, size=(batch_size, ))
 
             # Real labels to train generator
             y_real_gen = np.random.uniform(low=0.9, high=1.0, size=(batch_size, ))
