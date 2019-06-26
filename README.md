@@ -27,6 +27,9 @@ After 0 epochs:
 
 ![](results/img/gen_0.png)
 
+After 10 epochs:
+![](results/img/gen_10.png)
+
 After 1000 epochs:
 
 ![](results/img/gen_1000.png)
