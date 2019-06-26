@@ -44,6 +44,6 @@ After 100 epochs:
 
 ![](results/img/gen_380.png)
 
-After 460 epochs:
+After 580 epochs:
 
 ![](results/img/gen_460.png)
