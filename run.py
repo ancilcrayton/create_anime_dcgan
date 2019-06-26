@@ -96,17 +96,20 @@ def train():
 
             image_batch = X[index * batch_size:(index + 1) * batch_size]
             
+            y_real = np.random.uniform(low=0.7, high=1.2, size=(batch_size, ))
+            y_fake = np.random.uniform(low=0, high=0.3, size=(batch_size, ))
+            
             # Label switching every three epochs
-            if epoch % 3 == 0:
+            #if epoch % 3 == 0:
                 # Use label smoothing to avoid discriminator approaching zero loss quickly
-                y_fake = np.random.uniform(low=0.7, high=1.2, size=(batch_size, ))
-                y_real = np.random.uniform(low=0, high=0.3, size=(batch_size, ))
-            else:
-                y_real = np.random.uniform(low=0.7, high=1.2, size=(batch_size, ))
-                y_fake = np.random.uniform(low=0, high=0.3, size=(batch_size, ))
+                #y_fake = np.random.uniform(low=0.7, high=1.2, size=(batch_size, ))
+                #y_real = np.random.uniform(low=0, high=0.3, size=(batch_size, ))
+            #else:
+                #y_real = np.random.uniform(low=0.7, high=1.2, size=(batch_size, ))
+                #y_fake = np.random.uniform(low=0, high=0.3, size=(batch_size, ))
 
             # Real labels to train generator
-            y_real_gen = np.random.uniform(low=0.9, high=1.0, size=(batch_size, ))
+            #y_real_gen = np.random.uniform(low=0.7, high=1.0, size=(batch_size, ))
 
             dis_loss_real = dis_model.train_on_batch(image_batch, y_real)
             dis_loss_fake = dis_model.train_on_batch(generated_images, y_fake)
@@ -122,7 +125,7 @@ def train():
             z_noise = np.random.normal(0, 1, size=(batch_size, z_shape))
             # z_noise = np.random.uniform(-1, 1, size=(batch_size, 100))
 
-            g_loss = adversarial_model.train_on_batch(z_noise, y_real_gen)
+            g_loss = adversarial_model.train_on_batch(z_noise, y_real)
             print("g_loss:", g_loss)
 
             dis_losses.append(d_loss)
@@ -132,7 +135,7 @@ def train():
         Sample some images and save them
         """
 	# Sample images every one hundred epochs
-        if epoch % 50 == 0:
+        if epoch % 20 == 0:
             z_noise = np.random.normal(0, 1, size=(batch_size, z_shape))
             gen_images1 = gen_model.predict_on_batch(z_noise)
 
