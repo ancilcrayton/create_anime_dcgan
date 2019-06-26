@@ -19,6 +19,12 @@ Finally, run the main script to train the model and record results into `results
 ```
 $ python run.py
 ```
+## Samples of Images
+![](img/face_1000.png)
+
+![](img/face_2000.png)
+
+![](img/face_3000.png)
 
 ## Results
 We record the results for the model every 1000 epochs, retrieving images sampled from the generator.
