@@ -124,7 +124,7 @@ def train():
         Sample some images and save them
         """
 	# Sample images every one hundred epochs
-        if epoch % 1000 == 0:
+        if epoch % 10 == 0:
             z_noise = np.random.normal(0, 1, size=(batch_size, z_shape))
             gen_images1 = gen_model.predict_on_batch(z_noise)
 
