@@ -27,9 +27,9 @@ def train():
     # Set main parameters
     start_time = time.time()
     dataset_dir = "data/*.*"
-    batch_size = 128
+    batch_size = 64
     z_shape = 100
-    epochs = 5000
+    epochs = 10000
     dis_learning_rate = 0.005
     gen_learning_rate = 0.005
     dis_momentum = 0.5
@@ -95,9 +95,10 @@ def train():
             dis_model.trainable = True
 
             image_batch = X[index * batch_size:(index + 1) * batch_size]
-
-            y_real = np.ones((batch_size, )) * 0.9
-            y_fake = np.zeros((batch_size, )) + 0.1 # not multiplication
+            
+            # Soft and noisy labels to avoid discriminator approaching zero loss quickly
+            y_real = np.random.uniform(low=0.9, high=1.0, size=(batch_size, ))
+            y_fake = np.random.uniform(low=0, high=0.1, size=(batch_size, ))
 
             dis_loss_real = dis_model.train_on_batch(image_batch, y_real)
             dis_loss_fake = dis_model.train_on_batch(generated_images, y_fake)
