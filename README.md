@@ -20,6 +20,9 @@ Finally, run the main script to train the model and record results into `results
 ```
 $ python run.py
 ```
+
+After 10,000 epochs, the trained generator and discriminator networks will be saved with the file paths `results/models/generator_model.h5` and `results/models/discriminator_model.h5`, respectively.
+
 ## Samples of data
 ![](img/face_1000.png)
 
