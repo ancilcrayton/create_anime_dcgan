@@ -11,7 +11,7 @@ First, scrape anime images from danbooru using the `gallery-dl` package:
 $ gallery-dl https://danbooru.donmai.us/posts?tags=face
 ```
 
-Next, run the preprocessing script to detect faces and crop images to 64x64x3:
+Next, run the preprocessing script to detect faces and crop images to 64x64x3 which will save into a directory named `data/`:
 ```
 $ python preprocess.py
 ```
@@ -34,4 +34,4 @@ A big issue with learning this dataset was _mode collapse_. Mode collapse is the
 
 1. **Label Smoothing**: Instead of using hard assignments to train the discriminator network (1=real, 0=fake), I take random draws from a uniform distribution of U(0.7,1.2) for the real images and U(0,0.3) for the fake images. This introduces randomness into the training and aids in avoiding the discriminator loss from reaching 0 rapidly. Training for the generator network should remain the same as the goal for the generator is to learn the distribution of the input data.  
 2. **Label Flipping**: Every third epoch, I flip the labels of the real and fake images in training the discriminator network. This method helps with the gradient flow as well as avoids the discriminator from rapidly approaching 0 too quickly by essentially flipping the training process of the discriminator to work with the generator.
-3. **Reduce Discriminator Complexity**: The original model choice of the discriminator included three convlutional layers. This included a layer with 128 5x5 filters, a layer with 256 3x3 filters following this, and a layer with 512 3x3 filters. I excluded the middle convolutional layer to reduce the complexity of the model.
+3. **Reduce Discriminator Complexity**: The original model choice of the discriminator included three convolutional layers. This included a layer with 128 5x5 filters, a layer with 256 3x3 filters following this, and a layer with 512 3x3 filters. I excluded the middle convolutional layer to reduce the complexity of the model.
