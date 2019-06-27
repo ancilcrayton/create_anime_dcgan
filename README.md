@@ -28,9 +28,9 @@ $ python run.py
 ![](img/face_3000.png)
 
 ## Important features
-Training GANs are tough and this includes DCGANS.
+Training GANs are tough and this includes DCGANs.
 
 A big issue with learning this dataset was _mode collapse_. Mode collapse is the case when your generator shows a lack of diversity in its output when given random noise as an input. Another issue was domination of the discriminator during training, which often signalled mode collapse. I took the following steps to address these issues in training:
 
-1. *Label Smoothing*: Instead of using hard assignments to train the discriminator network (1=real, 0=fake), I take random draws from a uniform distribution of U(0.7,1.2) for the real images and from U(0,0.3) for the fake images. This introduces randomness into the training and aids in avoiding the discriminator loss from reaching 0 rapidly. Training for the generator network should remain the same as the goal for the generator is to learn the distribution of the input data.  
-2. *Label Flipping*: Every third epoch, I flip the labels of the real and fake images in training the discriminator network. This method helps with the gradient flow as well as avoids the discriminator from rapidly approaching 0 too quickly by essentially flipping the training process of the discriminator to work with the generator.
+1. **Label Smoothing**: Instead of using hard assignments to train the discriminator network (1=real, 0=fake), I take random draws from a uniform distribution of U(0.7,1.2) for the real images and U(0,0.3) for the fake images. This introduces randomness into the training and aids in avoiding the discriminator loss from reaching 0 rapidly. Training for the generator network should remain the same as the goal for the generator is to learn the distribution of the input data.  
+2. **Label Flipping**: Every third epoch, I flip the labels of the real and fake images in training the discriminator network. This method helps with the gradient flow as well as avoids the discriminator from rapidly approaching 0 too quickly by essentially flipping the training process of the discriminator to work with the generator.
