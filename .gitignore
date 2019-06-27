@@ -1,3 +1,4 @@
 gallery-dl/*
 data/*
 __pycache__/*
+env/*
